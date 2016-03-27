@@ -1,0 +1,14 @@
+/* style.scss */
+body {
+    background: white;
+}
+
+#header {
+    height:50px;
+    img {
+        position:absolute;
+        top:5px;
+        right:20px;
+        height:50px;
+    }
+}
