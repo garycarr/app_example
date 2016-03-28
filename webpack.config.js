@@ -2,7 +2,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: __dirname + "/src",
-    entry: "./entry.js",
+    entry: {
+        app: ["./main"]
+    },
     output: {
         path: __dirname + "/dist",
         filename: "bundle.js"
@@ -18,9 +20,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                loader: "style!css",
-                exclude: /node_modules/,
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             },
             {
                 test: /\.hbs$/,
@@ -29,6 +30,15 @@ module.exports = {
                     inlineRequires: '\/images\/',
                     helperDirs: [__dirname + '/src/helpers']
                 }
+            },
+            {
+                test: /fonts*\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url?mimetype=image/svg+xml'
+            },
+            // IMAGE LOADER
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'file'
             },
         ]
     },
