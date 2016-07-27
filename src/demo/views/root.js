@@ -1,9 +1,8 @@
 'use strict';
 
 import Marionette from 'backbone.marionette';
-// import UserModel from '../models/user';
 import template from '../templates/root.hbs';
-import HeaderView from './header'
+import HeaderView from './header';
 
 export default Marionette.LayoutView.extend({
     /**
@@ -22,7 +21,7 @@ export default Marionette.LayoutView.extend({
     template: template,
 
     regions: {
-        header: '#header',
+        header: '#header'
     },
 
     onRender: function () {

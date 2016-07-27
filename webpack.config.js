@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dirName = __dirname; // eslint-disable-line
 
 module.exports = {
-    context: __dirname + '/src',
+    context: `${dirName}/src`,
     entry: {
         app: ['./main']
     },
     output: {
-        path: __dirname + '/dist',
+        path: `${dirName}/dist`,
         filename: 'bundle.js'
     },
     module: {
@@ -27,8 +28,8 @@ module.exports = {
                 test: /\.hbs$/,
                 loader: 'handlebars',
                 query: {
-                    // inlineRequires: '\/images\/',
-                    // helperDirs: [__dirname + '/src/helpers']
+                    inlineRequires: '\/images\/',
+                    helperDirs: [`${dirName}/src/helpers`]
                 }
             },
             {
@@ -42,11 +43,11 @@ module.exports = {
             }
         ]
     },
-    //
+
     // resolve: {
-    //   alias: {
-    //       underscore: 'loadash'
-    //   }
+    //     alias: {
+    //         underscore: 'loadash'
+    //     }
     // },
     plugins: [
         new HtmlWebpackPlugin({

@@ -8,6 +8,6 @@ export default Backbone.Model.extend({
      * @return {String} Backbone model API root
      */
     urlRoot: function () {
-        return '/api/user';
+        return '/user';
     }
 });
