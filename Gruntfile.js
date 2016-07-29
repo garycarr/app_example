@@ -130,5 +130,11 @@ module.exports = function (grunt) {
     /**
      * 'test' task to the run unit tests
      */
-    grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('test', function () {
+        grunt.task.run([
+            'clean:dist',             // clear-down old files in dist
+            'karma:unit',             // run unit tests
+            'watch'                   // watch source files for other tasks such as test
+        ]);
+    });
 };

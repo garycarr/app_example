@@ -1,8 +1,10 @@
 'use strict';
 
 import Marionette from 'backbone.marionette';
-import template from '../templates/root.hbs';
+import Template from '../templates/root.hbs';
 import HeaderView from './header';
+import LoginView from './login';
+import LoginModel from '../models/login.js';
 
 export default Marionette.LayoutView.extend({
     /**
@@ -18,13 +20,17 @@ export default Marionette.LayoutView.extend({
      * @type {String}
      * @instance
      */
-    template: template,
+    template: Template,
 
     regions: {
-        header: '#header'
+        header: '#header',
+        content: '#content'
     },
 
     onRender: function () {
         this.showChildView('header', new HeaderView());
+        this.showChildView('content', new LoginView({
+            model: new LoginModel()
+        }));
     }
 });

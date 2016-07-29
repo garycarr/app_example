@@ -8,6 +8,17 @@ export default Backbone.Model.extend({
      * @return {String} Backbone model API root
      */
     urlRoot: function () {
-        return '/user';
+        return '/login';
+    },
+
+    validation: {
+        password: [{
+            required: true,
+            minLength: 2
+        }],
+        username: [{
+            required: true,
+            minLength: 2
+        }]
     }
 });

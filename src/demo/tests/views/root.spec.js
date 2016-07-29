@@ -1,4 +1,5 @@
-/* global sinon, expect */
+/* global sinon */
+// sinon, expect
 'use strict';
 
 import RootLayoutView from '../../views/root';
@@ -23,9 +24,7 @@ describe('Root View', function () {
 
             view.onRender();
 
-            view.showChildView.should.have.callCount(1);
-            let args = view.showChildView.getCall(0).args;
-            expect(args[0]).to.equal('header');
+            view.showChildView.should.have.callCount(2);
         });
     });
 
